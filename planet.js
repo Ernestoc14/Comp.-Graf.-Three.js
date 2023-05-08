@@ -37,8 +37,8 @@ function init() {
     planetMesh.castShadow = true;
     planetMesh.receiveShadow = true;
     const ringGeo = new THREE.RingGeometry(0.3, 0.5, 64);
-    const ringTex = new THREE.TextureLoader().load('https://firebasestorage.googleapis.com/v0/b/farpoint-js.appspot.com/o/saturn%2Fsaturn-ring.webp?alt=media&token=76117245-5be7-4c23-aee1-f33696f0d256 ');
-    const ringMat = new THREE.MeshStandardMaterial({ map: ringTex, side: THREE.DoubleSide, transparent: true });
+    const ringTex = new THREE.TextureLoader().load("https://firebasestorage.googleapis.com/v0/b/farpoint-js.appspot.com/o/saturn%2Fsaturn-ring.webp?alt=media&token=76117245-5be7-4c23-aee1-f33696f0d256")
+    const ringMat = new THREE.MeshBasicMaterial({ map: ringTex, side: THREE.DoubleSide, transparent: true });
     
     const ringMesh = new THREE.Mesh(ringGeo, ringMat);
     ringMesh.castShadow = true;
@@ -48,7 +48,8 @@ function init() {
     saturn.position.x = controls.target.x = 1.7
     saturn.position.x = Math.PI / 2
     saturn.position.y = Math.PI / 8
-    saturn.add(planetMesh, ringMesh);
+    saturn.add(planetMesh);
+    saturn.add(ringMesh);
     scene.add(saturn);
 }
 function animate() {
